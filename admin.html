@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - MadridZone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">MadridZone</div>
+
+    <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="news.html">Aktualności</a>
+    <a href="matches.html">Mecze</a>
+    <a href="standings.html">Tabela La Liga</a>
+    <a href="players.html">Kadra</a>
+    <button id="logout-btn" class="logout-btn">Wyloguj</button>
+</nav>
+</header>
+
+<section class="page-header">
+    <h1>Panel admina</h1>
+    <p>Dodaj nowy news do bazy danych.</p>
+</section>
+
+<section class="admin-section">
+    <form id="news-form" class="admin-form">
+    <label>Tytuł newsa</label>
+    <input type="text" id="title" required>
+
+    <label>Kategoria</label>
+    <input type="text" id="category" required>
+
+    <label>Zdjęcie</label>
+    <input type="text" id="image" placeholder="np. mbappe.jpg" required>
+
+    <button type="submit">Dodaj news</button>
+</form>
+</section>
+
+<section class="admin-news-section">
+    <h2>Lista newsów</h2>
+    <div id="admin-news-list"></div>
+</section>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

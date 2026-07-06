@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>MadridZone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">MadridZone</div>
+
+    <nav class="menu">
+        <a href="index.html" class="active">Home</a>
+        <a href="news.html">Aktualności</a>
+        <a href="matches.html">Mecze</a>
+        <a href="standings.html">Tabela La Liga</a>
+        <a href="players.html">Kadra</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="home-hero">
+        <div class="home-hero-content">
+            <p class="home-kicker">REAL MADRID • 2026/27</p>
+
+            <h1>MadridZone</h1>
+
+            <p class="home-hero-text">
+                Mecze, tabela La Liga, aktualności i kadra Realu Madryt
+                w jednym miejscu.
+            </p>
+
+            <div class="home-hero-buttons">
+                <a href="matches.html" class="home-primary-btn">
+                    Zobacz mecze
+                </a>
+
+                <a href="news.html" class="home-secondary-btn">
+                    Najnowsze newsy
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section">
+        <div class="home-section-heading">
+            <p class="home-kicker dark-kicker">NAJBLIŻSZY MECZ</p>
+            <h2>Real Madrid — następne spotkanie</h2>
+        </div>
+
+        <div id="home-next-match" class="home-next-match">
+            <p class="home-loading">Ładowanie najbliższego meczu...</p>
+        </div>
+    </section>
+
+    <section class="home-dashboard-section">
+        <div class="home-table-card">
+            <div class="home-card-top">
+                <div>
+                    <p class="home-kicker dark-kicker">LA LIGA</p>
+                    <h2>Real w tabeli</h2>
+                </div>
+
+                <a href="standings.html">Pełna tabela →</a>
+            </div>
+
+            <div id="home-standings" class="home-standings">
+                <p class="home-loading">Ładowanie tabeli...</p>
+            </div>
+        </div>
+
+        <a href="players.html" class="home-squad-card">
+            <p class="home-kicker">KADRA REALU</p>
+            <h2>Poznaj zawodników</h2>
+
+            <p>
+                Zobacz pełną kadrę, numery, pozycje i profile piłkarzy.
+            </p>
+
+            <span>Zobacz kadrę →</span>
+        </a>
+    </section>
+
+    <section class="home-section home-news-section">
+        <div class="home-card-top">
+            <div>
+                <p class="home-kicker dark-kicker">AKTUALNOŚCI</p>
+                <h2>Najnowsze informacje o Realu</h2>
+            </div>
+
+            <a href="news.html">Wszystkie newsy →</a>
+        </div>
+
+        <div id="home-news" class="home-news-grid">
+            <p class="home-loading">Ładowanie aktualności...</p>
+        </div>
+    </section>
+
+</main>
+
+<script src="index.js"></script>
+
+</body>
+</html>
