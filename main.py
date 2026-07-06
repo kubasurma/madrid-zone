@@ -1,11 +1,17 @@
 import requests
-from config import API_KEY, GNEWS_API_KEY, DB_CONFIG
+from settings import API_KEY, GNEWS_API_KEY, DATABASE_URL, DB_CONFIG
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import psycopg2
 
 app = FastAPI()
+
+def get_db_connection():
+    if DATABASE_URL:
+        return psycopg2.connect(DATABASE_URL)
+
+    return psycopg2.connect(**DB_CONFIG)
 
 app.add_middleware(
     CORSMiddleware,
@@ -37,7 +43,7 @@ def home():
 
 @app.get("/news")
 def get_news():
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = get_db_connection()
 
     cursor = conn.cursor()
 
@@ -67,7 +73,7 @@ def get_news():
 
 @app.post("/news")
 def create_news(news: NewsCreate):
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = get_db_connection()
 
     cursor = conn.cursor()
 
@@ -89,7 +95,7 @@ def create_news(news: NewsCreate):
 
 @app.delete("/news/{news_id}")
 def delete_news(news_id: int):
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = get_db_connection()
 
     cursor = conn.cursor()
 
@@ -111,7 +117,7 @@ def delete_news(news_id: int):
 
 @app.get("/players")
 def get_players():
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = get_db_connection()
 
     cursor = conn.cursor()
 
@@ -143,7 +149,7 @@ def get_players():
 @app.put("/news/{news_id}")
 def update_news(news_id: int, news: NewsUpdate):
 
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = get_db_connection()
 
     cursor = conn.cursor()
 
@@ -173,7 +179,7 @@ def update_news(news_id: int, news: NewsUpdate):
 
 @app.get("/matches")
 def get_matches():
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = get_db_connection()
 
     cursor = conn.cursor()
 
@@ -207,7 +213,7 @@ def get_matches():
 @app.post("/login")
 def login(data: LoginData):
 
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = get_db_connection()
 
     cursor = conn.cursor()
 
@@ -280,7 +286,7 @@ def get_real_squad():
 
 @app.get("/players/{player_id}")
 def get_player(player_id: int):
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = get_db_connection()
 
     cursor = conn.cursor()
 
@@ -312,7 +318,7 @@ def get_player(player_id: int):
 
 @app.get("/players/{player_id}/external")
 def get_external_player(player_id: int):
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = get_db_connection()
 
     cursor = conn.cursor()
 
