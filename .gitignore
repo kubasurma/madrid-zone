@@ -6,3 +6,7 @@ config.py
 .env
 
 .idea/
+
+madrid_zone.dump
+madrid_zone.sql
+madrid_zone_neon.sql
