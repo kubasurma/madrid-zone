@@ -11,7 +11,7 @@ def get_db_connection():
     if DATABASE_URL:
         return psycopg2.connect(DATABASE_URL)
 
-    return psycopg2.connect(**DB_CONFIG)
+    return psycopg2.connect(**DB_CONFIG,  sslmode="disable")
 
 app.add_middleware(
     CORSMiddleware,
